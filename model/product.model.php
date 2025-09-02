@@ -6,13 +6,12 @@ class ProductModel extends Connection
     protected $sinopsis;
     protected $tahun_rilis;
 
-    // ambil semua data film
     protected function findAll()
     {
         $sql = "SELECT * FROM film";
         $result = $this->connect()->query($sql);
 
-        $products = []; // default array kosong
+        $products = []; 
 
         if ($result && $result->num_rows > 0) {
             while ($data = $result->fetch_assoc()) {
@@ -23,16 +22,15 @@ class ProductModel extends Connection
         return $products;
     }
 
-    // ambil data film berdasarkan id
     protected function findOne($id)
     {
         $sql = "SELECT * FROM film WHERE id = ?";
         $stmt = $this->connect()->prepare($sql);
 
-        $products = []; // default array kosong
+        $products = []; 
 
         if ($stmt) {
-            $stmt->bind_param("i", $id); // i = integer
+            $stmt->bind_param("i", $id); 
             $stmt->execute();
             $result = $stmt->get_result();
 
