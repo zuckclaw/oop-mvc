@@ -20,7 +20,7 @@ class ProductView extends ProductController
     public function find()
     {
         $detailProduct = $this->getProductBy();
-        if (empty(detailProduct)) {
+        if (empty($detailProduct)) {
             return;
         foreach ($detailProduct as $detail) { ?>
          <div>
